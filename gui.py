@@ -23,7 +23,7 @@ def showGUI():
     root.resizable(False,False)
 
     detectedText = StringVar()
-    bgImage = Image.open('D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\background.png')
+    bgImage = Image.open('D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\background.png')
     background = ImageTk.PhotoImage(bgImage)
 
     # Canvas
@@ -49,7 +49,7 @@ def showGUI():
     imagePath.place(x=50,y=310,width=460,height=32)
 
     # Image Selector Button
-    chooseImgIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\img0.png")
+    chooseImgIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img0.png")
     def chooseImage():
         imagePathText.set(getImagePath())
 
@@ -84,7 +84,7 @@ def showGUI():
         messagebox.showinfo("Success","Text successfully detected!")
 
 
-    scanImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\img1.png")
+    scanImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img1.png")
     scanButton = Button(
         image=scanImageIcon,
         borderwidth=0,
@@ -106,8 +106,8 @@ def showGUI():
         copyText(detectedText.get())
 
 
-    copyTextImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\img2.png")
-    copyTextImageIconHover = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\img2hover.png")
+    copyTextImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img2.png")
+    copyTextImageIconHover = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img2hover.png")
 
     copyTextButton = Button(
         image=copyTextImageIcon,
@@ -141,8 +141,8 @@ def showGUI():
         saveFile(detectedText.get())
 
 
-    saveTextImageIcon= PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\img3.png")
-    saveTextImageIconHover= PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\img3hover.png")
+    saveTextImageIcon= PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img3.png")
+    saveTextImageIconHover= PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img3hover.png")
 
     saveTextButton = Button(
         image=saveTextImageIcon,
@@ -174,8 +174,8 @@ def showGUI():
     def toDocument():
         toDoc(detectedText.get())
 
-    toDocImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\img4.png")
-    toDocImageIconHover = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\img4hover.png")
+    toDocImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img4.png")
+    toDocImageIconHover = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img4hover.png")
 
 
     toDocButton = Button(
