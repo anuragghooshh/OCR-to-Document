@@ -23,7 +23,7 @@ def showGUI():
     root.resizable(False,False)
 
     detectedText = StringVar()
-    bgImage = Image.open('D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\background.png')
+    bgImage = Image.open('D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\background.png')
     background = ImageTk.PhotoImage(bgImage)
 
     # Canvas
@@ -46,10 +46,10 @@ def showGUI():
     imagePathText = StringVar()
     imagePathText.set("")
     imagePath = Entry(font=("Tahoma",14),relief="groove",borderwidth=0,highlightthickness=0,bg="#eeeeee",textvariable=imagePathText)
-    imagePath.place(x=50,y=310,width=460,height=32)
+    imagePath.place(x=90,y=314,width=360,height=32)
 
     # Image Selector Button
-    chooseImgIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img0.png")
+    chooseImgIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\img0.png")
     def chooseImage():
         imagePathText.set(getImagePath())
 
@@ -63,9 +63,9 @@ def showGUI():
         command=chooseImage
     )
     imageSelector.place(
-        x=530,
-        y=310,
-        width=100,
+        x=494,
+        y=314,
+        width=98,
         height=32
     )
 
@@ -84,7 +84,7 @@ def showGUI():
         messagebox.showinfo("Success","Text successfully detected!")
 
 
-    scanImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img1.png")
+    scanImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\img1.png")
     scanButton = Button(
         image=scanImageIcon,
         borderwidth=0,
@@ -94,9 +94,9 @@ def showGUI():
         command=scan
     )
     scanButton.place(
-        x=650,
-        y=310,
-        width=100,
+        x=612,
+        y=314,
+        width=98,
         height=32
     )
 
@@ -106,8 +106,8 @@ def showGUI():
         copyText(detectedText.get())
 
 
-    copyTextImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img2.png")
-    copyTextImageIconHover = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img2hover.png")
+    copyTextImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\img2.png")
+    copyTextImageIconHover = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\img2hover.png")
 
     copyTextButton = Button(
         image=copyTextImageIcon,
@@ -118,10 +118,10 @@ def showGUI():
         command=copyToClipboard
     )
     copyTextButton.place(
-        x=50,
-        y=414,
-        width=205.88,
-        height=65.88
+        x=90,
+        y=386,
+        width=193.33,
+        height=66
     )
 
     #Hover Effects
@@ -141,8 +141,8 @@ def showGUI():
         saveFile(detectedText.get())
 
 
-    saveTextImageIcon= PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img3.png")
-    saveTextImageIconHover= PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img3hover.png")
+    saveTextImageIcon= PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\img3.png")
+    saveTextImageIconHover= PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\img3hover.png")
 
     saveTextButton = Button(
         image=saveTextImageIcon,
@@ -153,10 +153,10 @@ def showGUI():
         command=saveTextFile
     )
     saveTextButton.place(
-        x=297,
-        y=414,
-        width=205.88,
-        height=65.88
+        x=303.3,
+        y=386,
+        width=193.33,
+        height=66
     )
 
     #Hover Effects
@@ -174,8 +174,8 @@ def showGUI():
     def toDocument():
         toDoc(detectedText.get())
 
-    toDocImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img4.png")
-    toDocImageIconHover = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v1\\img4hover.png")
+    toDocImageIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\img4.png")
+    toDocImageIconHover = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\img4hover.png")
 
 
     toDocButton = Button(
@@ -187,10 +187,10 @@ def showGUI():
         command=toDocument
     )
     toDocButton.place(
-        x=544,
-        y=414,
-        width=205.88,
-        height=65.88
+        x=516.7,
+        y=386,
+        width=193.33,
+        height=66
     )
 
     #Hover Effects
@@ -202,5 +202,27 @@ def showGUI():
 
     toDocButton.bind("<Enter>",toDocon_enter)
     toDocButton.bind("<Leave>",ToDocon_leave)
+
+    # Note to Document Button
+    def noteToDocument():
+        print("hi")
+
+    noteToDoucumentIcon = PhotoImage(file=f"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\\v2\\noteBg.png")
+    
+    noteToDoucumentButton = Button(
+        image=noteToDoucumentIcon,
+        borderwidth=0,
+        highlightthickness=0,
+        relief="groove",
+        cursor="hand2",
+        command=noteToDocument,
+        bd=0
+    )
+    noteToDoucumentButton.place(
+        x=90,
+        y=498,
+        width=119,
+        height=30,
+    )
 
     root.mainloop()
