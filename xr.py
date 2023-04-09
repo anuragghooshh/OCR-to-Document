@@ -95,6 +95,9 @@ qr.add_data('New data')
 other_img = qr.make_image()
 
 
+# for output (qr "Some data" > test.png
+#qr --output=test.png "Some data")
 
+# replace word with your data script
 
 
