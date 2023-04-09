@@ -19,7 +19,7 @@ def showSplash():
     )
     canvas.place(x=0,y=0)
 
-    imagePath = 'D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\splash.gif'
+    imagePath = r'E:\New folder\OCR-to-Document-main\OCR-to-Document-main\GUI\splash.gif'
     splashAnimationGIF = Image.open(imagePath)
     splashAnimationGIF.resize = False
 

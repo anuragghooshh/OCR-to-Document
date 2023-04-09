@@ -1,1 +1,1 @@
-        imagePathText.set("MEOW")
+imagePathText.set("MEOW") 

@@ -4,7 +4,6 @@ from PIL import Image
 from sys import argv
 from os import remove
 import easyocr
-from matplotlib import pyplot as plt
 import pyperclip
 
 def check(text):
@@ -71,7 +70,7 @@ def toDoc(textToBeWritten):
     if check(textToBeWritten) == True:
         return
 
-    tempFilePath = "D:\\PROGRAMMING\\ALL CODES\\CODES NEW\\Python\\MinorProjectOCR\\temp\\temp.txt"
+    tempFilePath = r"E:\New folder\OCR-to-Document-main\OCR-to-Document-main\temp\temp.txt"
     
     with open(tempFilePath,"w") as tempFile:
         tempFile.write(f"{textToBeWritten}")
@@ -86,12 +85,12 @@ def toDoc(textToBeWritten):
         print("Could not find file. Using default file...")
         txt=open(tempFilePath, "r")  
 
-    BG = Image.open("D:\\PROGRAMMING\\ALL CODES\\CODES NEW\\Python\\MinorProjectOCR\\Images\\page.png")
+    BG = Image.open(r"E:\New folder\OCR-to-Document-main\OCR-to-Document-main\Images\page.png")
     sheet_width=BG.width
     gap, ht = 0, 0
 
     for i in txt.read().replace("\n",""):
-        cases = Image.open("D:\\PROGRAMMING\\ALL CODES\\CODES NEW\\Python\\MinorProjectOCR\\Letters\\{}.png".format(str(ord(i))))
+        cases = Image.open(r"E:\New folder\OCR-to-Document-main\OCR-to-Document-main\Letters\{}.png".format(str(ord(i))))
         BG.paste(cases, (gap, ht),mask=cases)
         size = cases.width
         height=cases.height
@@ -105,3 +104,4 @@ def toDoc(textToBeWritten):
     root.folderName = filedialog.asksaveasfilename(title="Save image as", initialdir="/", initialfile="untitled")
     print(root.folderName)
     BG.save(f"{root.folderName}.png")
+    
