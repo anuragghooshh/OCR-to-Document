@@ -1,9 +1,11 @@
 from tkinter import *
-from tkinter import messagebox
+from tkinter import messagebox, Label
 from tkinter.font import BOLD
 from PIL import ImageTk, Image
 from operations import detectText, getImagePath, copyText, saveFile, toDoc
 from notepad import launchNotepad
+from qrCodeFunc import toQrCode
+import qrcode
 
 def showGUI():
     root = Tk()
@@ -16,7 +18,7 @@ def showGUI():
     y = (screen_height/2) - (600/2)
 
     # Root window customization
-    favicon= PhotoImage(file='E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\Images\\ocrfavicon.png')
+    favicon= PhotoImage(file=r'D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\Images\ocrfavicon.png')
 
     root.iconphoto(False,favicon)
     root.title("OCR to Document")
@@ -24,7 +26,7 @@ def showGUI():
     root.resizable(False,False)
 
     detectedText = StringVar()
-    bgImage = Image.open('E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\background.png')
+    bgImage = Image.open(r'D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\background.png')
     background = ImageTk.PhotoImage(bgImage)
 
     # Canvas
@@ -50,7 +52,7 @@ def showGUI():
     imagePath.place(x=90,y=314,width=360,height=32)
 
     # Image Selector Button
-    chooseImgIcon = PhotoImage(file=f"E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\img0.png")
+    chooseImgIcon = PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\img0.png")
     def chooseImage():
         imagePathText.set(getImagePath())
 
@@ -67,7 +69,7 @@ def showGUI():
         x=494,
         y=314,
         width=98,
-        height=32
+        height=32,
     )
 
 
@@ -85,7 +87,7 @@ def showGUI():
         messagebox.showinfo("Success","Text successfully detected!")
 
 
-    scanImageIcon = PhotoImage(file=f"E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\img1.png")
+    scanImageIcon = PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\img1.png")
     scanButton = Button(
         image=scanImageIcon,
         borderwidth=0,
@@ -107,8 +109,8 @@ def showGUI():
         copyText(detectedText.get())
 
 
-    copyTextImageIcon = PhotoImage(file=f"E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\img2.png")
-    copyTextImageIconHover = PhotoImage(file=f"E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\img2hover.png")
+    copyTextImageIcon = PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\img2.png")
+    copyTextImageIconHover = PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\img2hover.png")
 
     copyTextButton = Button(
         image=copyTextImageIcon,
@@ -142,8 +144,8 @@ def showGUI():
         saveFile(detectedText.get())
 
 
-    saveTextImageIcon= PhotoImage(file=f"E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\img3.png")
-    saveTextImageIconHover= PhotoImage(file=f"E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\img3hover.png")
+    saveTextImageIcon= PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\img3.png")
+    saveTextImageIconHover= PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\img3hover.png")
 
     saveTextButton = Button(
         image=saveTextImageIcon,
@@ -175,8 +177,8 @@ def showGUI():
     def toDocument():
         toDoc(detectedText.get())
 
-    toDocImageIcon = PhotoImage(file=f"E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\img4.png")
-    toDocImageIconHover = PhotoImage(file=f"E:\\New folder\\OCR-to-Document-main\\OCR-to-Document-main\\GUI\\v2\\img4hover.png")
+    toDocImageIcon = PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\img4.png")
+    toDocImageIconHover = PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\img4hover.png")
 
 
     toDocButton = Button(
@@ -208,22 +210,45 @@ def showGUI():
     def noteToDocument():
         launchNotepad()
 
-    noteToDoucumentIcon = PhotoImage(file=r"E:\New folder\OCR-to-Document-main\OCR-to-Document-main\GUI\v2\noteBG.png")
+    noteToDoucumentIcon = PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\noteBG.png")
     
     noteToDoucumentButton = Button(
         image=noteToDoucumentIcon,
         borderwidth=0,
+        border=0,
         highlightthickness=0,
         relief="groove",
         cursor="hand2",
         command=noteToDocument,
-        bd=0
     )
     noteToDoucumentButton.place(
-        x=90,
-        y=498,
-        width=119,
-        height=30,
+        x=686,
+        y=492,
+        width=24,
+        height=24,
     )
 
+
+    # Qr Code Button
+    def toQRCode():
+        toQrCode(f"{detectedText.get()}")
+
+    toQRCodeIcon = PhotoImage(file=r"D:\PROGRAMMING\ALL CODES\CODES NEW\Python\MinorProjectOCR\GUI\v2\qrCode.png")
+    
+    toQRCodeButton = Button(
+        image=toQRCodeIcon,
+        borderwidth=0,
+        border=0,
+        highlightthickness=0,
+        relief="groove",
+        cursor="hand2",
+        command=toQRCode,
+    )
+    toQRCodeButton.place(
+        x=638,
+        y=492,
+        width=24,
+        height=24,
+    )
+    
     root.mainloop()

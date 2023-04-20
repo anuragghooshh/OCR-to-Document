@@ -1,1 +1,2 @@
-imagePathText.set("MEOW") 
+
+    qrRoot = Tk()
